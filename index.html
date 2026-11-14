@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>結婚披露宴 御招待状</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav class="nav">
+    <button class="nav-toggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="#greeting">御挨拶</a></li>
+      <li><a href="#gallery">ギャラリー</a></li>
+      <li><a href="#info">開催のご案内</a></li>
+      <li><a href="#rsvp">出欠のご回答</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== COVER ===== -->
+  <section class="section section--cover" id="cover">
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+    <div class="cover__inner">
+      <div class="ornament ornament--top">❧</div>
+      <div class="cover__frame">
+        <p class="cover__vertical">結婚披露宴御招待状</p>
+      </div>
+      <div class="cover__meta">
+        <p class="cover__date-side">令和九年<br>二月六日</p>
+        <p class="cover__venue-side">鎌倉<br>古我邸</p>
+      </div>
+      <div class="ornament ornament--bottom">❧</div>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-hint__line"></div>
+    </div>
+  </section>
+
+  <!-- ===== GREETING ===== -->
+  <section class="section section--content" id="greeting">
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+    <div class="section__inner">
+      <h2 class="section__title">御　挨　拶</h2>
+      <div class="divider"></div>
+      <div class="greeting__text">
+        <p>謹啓</p>
+        <p>時下ますますご清祥のこと<br>お慶び申し上げます</p>
+        <p>このたび　私たちは<br>結婚式を挙げることになりました</p>
+        <p>つきましては　ささやかではございますが<br>披露宴を催したく存じます</p>
+        <p>ご多用中とは存じますが<br>ぜひご出席くださいますよう<br>お願い申し上げます</p>
+      </div>
+      <div class="divider"></div>
+      <p class="names">原山 健太　　鈴木 美咲</p>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="section section--gallery" id="gallery">
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+    <div class="section__inner">
+      <h2 class="section__title">前　撮　り</h2>
+      <div class="divider"></div>
+      <p class="gallery__caption">海辺にて</p>
+
+      <!-- メイン表示エリア -->
+      <div class="gallery__main">
+        <button class="gallery__arrow gallery__arrow--prev" aria-label="前へ">&#8249;</button>
+        <div class="gallery__stage">
+          <div class="gallery__slides">
+            <!-- 写真1〜5：src を実際の画像パスに差し替えてください -->
+            <div class="gallery__slide active">
+              <div class="gallery__photo-wrap">
+                <img src="photos/photo1.jpg" alt="前撮り写真1" class="gallery__photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="gallery__placeholder">
+                  <span>photo 1</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery__slide">
+              <div class="gallery__photo-wrap">
+                <img src="photos/photo2.jpg" alt="前撮り写真2" class="gallery__photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="gallery__placeholder">
+                  <span>photo 2</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery__slide">
+              <div class="gallery__photo-wrap">
+                <img src="photos/photo3.jpg" alt="前撮り写真3" class="gallery__photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="gallery__placeholder">
+                  <span>photo 3</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery__slide">
+              <div class="gallery__photo-wrap">
+                <img src="photos/photo4.jpg" alt="前撮り写真4" class="gallery__photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="gallery__placeholder">
+                  <span>photo 4</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery__slide">
+              <div class="gallery__photo-wrap">
+                <img src="photos/photo5.jpg" alt="前撮り写真5" class="gallery__photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="gallery__placeholder">
+                  <span>photo 5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="gallery__arrow gallery__arrow--next" aria-label="次へ">&#8250;</button>
+      </div>
+
+      <!-- サムネイル -->
+      <div class="gallery__thumbs">
+        <div class="gallery__thumb active" data-index="0">
+          <img src="photos/photo1.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery__thumb" data-index="1">
+          <img src="photos/photo2.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery__thumb" data-index="2">
+          <img src="photos/photo3.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery__thumb" data-index="3">
+          <img src="photos/photo4.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery__thumb" data-index="4">
+          <img src="photos/photo5.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <!-- インジケーター -->
+      <div class="gallery__dots">
+        <button class="gallery__dot active" data-index="0"></button>
+        <button class="gallery__dot" data-index="1"></button>
+        <button class="gallery__dot" data-index="2"></button>
+        <button class="gallery__dot" data-index="3"></button>
+        <button class="gallery__dot" data-index="4"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INFO ===== -->
+  <section class="section section--content" id="info">
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+    <div class="section__inner">
+      <h2 class="section__title">開催のご案内</h2>
+      <div class="divider"></div>
+      <dl class="info__list">
+        <div class="info__row">
+          <dt>日　時</dt>
+          <dd>
+            令和九年二月六日（土）<br>
+            受付開始　十五時三十分<br>
+            披露宴開始　十六時三十分
+          </dd>
+        </div>
+        <div class="info__row">
+          <dt>会　場</dt>
+          <dd>
+            古我邸<br>
+            神奈川県鎌倉市長谷一丁目一番一号<br>
+            TEL. 0467-XX-XXXX
+          </dd>
+        </div>
+      </dl>
+      <div class="venue__illust">
+        <!-- 会場イラストのプレースホルダー -->
+        <div class="venue__illust-placeholder">
+          <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="40" y="50" width="120" height="60" stroke="#2a3f6b" stroke-width="1.5" fill="none"/>
+            <line x1="40" y1="50" x2="100" y2="20" stroke="#2a3f6b" stroke-width="1.5"/>
+            <line x1="160" y1="50" x2="100" y2="20" stroke="#2a3f6b" stroke-width="1.5"/>
+            <rect x="85" y="80" width="30" height="30" stroke="#2a3f6b" stroke-width="1" fill="none"/>
+            <rect x="50" y="60" width="20" height="15" stroke="#2a3f6b" stroke-width="1" fill="none"/>
+            <rect x="130" y="60" width="20" height="15" stroke="#2a3f6b" stroke-width="1" fill="none"/>
+            <line x1="20" y1="110" x2="180" y2="110" stroke="#2a3f6b" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RSVP CHOICE ===== -->
+  <section class="section section--content" id="rsvp">
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+    <div class="section__inner">
+      <h2 class="section__title">出欠のご回答</h2>
+      <div class="divider"></div>
+      <p class="rsvp__lead">ご出席・ご欠席のご回答を<br>お願い申し上げます</p>
+      <div class="rsvp__buttons">
+        <button class="btn btn--primary" onclick="showForm('attend')">出席する　›</button>
+        <button class="btn btn--secondary" onclick="showForm('absent')">欠席する　›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RSVP FORM ===== -->
+  <section class="section section--content" id="rsvp-form" style="display:none;">
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+    <div class="section__inner">
+      <h2 class="section__title">出席のご連絡</h2>
+      <div class="divider"></div>
+      <p class="form__lead">下記の項目をご入力ください</p>
+      <form class="form" id="rsvpForm">
+        <input type="hidden" name="attendance" id="attendanceInput">
+
+        <div class="form__group">
+          <label class="form__label">お名前 <span class="required">必須</span></label>
+          <input type="text" class="form__input" name="name" placeholder="例：山田 花子" required>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">性別</label>
+          <div class="form__radio-group">
+            <label class="form__radio"><input type="radio" name="gender" value="male">男性</label>
+            <label class="form__radio"><input type="radio" name="gender" value="female">女性</label>
+            <label class="form__radio"><input type="radio" name="gender" value="other">その他</label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">メールアドレス <span class="required">必須</span></label>
+          <input type="email" class="form__input" name="email" placeholder="例：hanako@example.com" required>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">ご住所 <span class="required">必須</span></label>
+          <input type="text" class="form__input" name="address" placeholder="例：東京都渋谷区…" required>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">電話番号</label>
+          <input type="tel" class="form__input" name="tel" placeholder="例：090-0000-0000">
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">アレルギーの有無 <span class="required">必須</span></label>
+          <div class="form__radio-group">
+            <label class="form__radio"><input type="radio" name="allergy" value="yes">あり</label>
+            <label class="form__radio"><input type="radio" name="allergy" value="no">なし</label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">アレルギー内容</label>
+          <textarea class="form__input form__textarea" name="allergyDetail" placeholder="アレルギーがある方はご記入ください"></textarea>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">メッセージ</label>
+          <textarea class="form__input form__textarea" name="message" placeholder="お言葉をいただけますと幸いです"></textarea>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">思い出の写真を添付する</label>
+          <input type="file" class="form__file" name="photo" accept="image/*">
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full">送信する　›</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="ornament ornament--footer">✿</div>
+    <p>原山 健太　　鈴木 美咲</p>
+    <p class="footer__date">令和九年二月六日</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
