@@ -123,12 +123,33 @@ img {
 
 
 /* =============================================
-   四隅の装飾（藍色の花模様）
+   四隅の花柄装飾（表紙用・大）
+   ============================================= */
+.floral {
+  position: absolute;
+  width: clamp(120px, 28vw, 180px);
+  height: clamp(120px, 28vw, 180px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floral--tl { top: 0; left: 0; }
+.floral--tr { top: 0; right: 0; }
+.floral--bl { bottom: 0; left: 0; }
+.floral--br { bottom: 0; right: 0; }
+
+.floral svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* =============================================
+   四隅の細枠装飾（他セクション用・小）
    ============================================= */
 .corner {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   pointer-events: none;
 }
 
@@ -136,26 +157,28 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg stroke='%232a3f6b' fill='none' stroke-width='1.2'%3E%3Cpath d='M5,5 Q20,5 20,20'/%3E%3Cpath d='M5,5 Q5,20 20,20'/%3E%3Ccircle cx='20' cy='20' r='3' fill='%232a3f6b'/%3E%3Cpath d='M5,5 L35,5 M5,5 L5,35'/%3E%3Ccircle cx='8' cy='14' r='4' fill='%232a3f6b' opacity='0.5'/%3E%3Ccircle cx='14' cy='8' r='3' fill='%232a3f6b' opacity='0.4'/%3E%3Ccircle cx='25' cy='10' r='2' fill='%232a3f6b' opacity='0.35'/%3E%3Ccircle cx='10' cy='25' r='2' fill='%232a3f6b' opacity='0.35'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cg stroke='%232a3f6b' fill='none' stroke-width='1'%3E%3Cpath d='M4,4 L28,4 M4,4 L4,28' opacity='0.5'/%3E%3Cpath d='M4,4 Q16,4 16,16' opacity='0.6'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%232a3f6b' opacity='0.5'/%3E%3Ccircle cx='7' cy='10' r='3' fill='%232a3f6b' opacity='0.35'/%3E%3Ccircle cx='10' cy='7' r='2.5' fill='%232a3f6b' opacity='0.3'/%3E%3Ccircle cx='20' cy='7' r='1.5' fill='%232a3f6b' opacity='0.25'/%3E%3Ccircle cx='7' cy='20' r='1.5' fill='%232a3f6b' opacity='0.25'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.corner--tl { top: 12px; left: 12px; }
-.corner--tr { top: 12px; right: 12px; transform: scaleX(-1); }
-.corner--bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
-.corner--br { bottom: 12px; right: 12px; transform: scale(-1); }
+.corner--tl { top: 10px; left: 10px; }
+.corner--tr { top: 10px; right: 10px; transform: scaleX(-1); }
+.corner--bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+.corner--br { bottom: 10px; right: 10px; transform: scale(-1); }
 
 
 /* =============================================
-   区切り線
+   区切り線（小花付き）
    ============================================= */
 .divider {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 0.6rem;
   margin: 1.25rem auto;
-  width: 200px;
+  width: 240px;
 }
 
 .divider::before,
@@ -164,24 +187,24 @@ img {
   flex: 1;
   height: 1px;
   background: var(--accent);
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-.divider::after {
-  content: '◈';
-  flex: none;
-  font-size: 0.65rem;
-  color: var(--accent);
-  opacity: 0.7;
+/* 中央の小花SVG */
+.divider__flower {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
 }
 
-.divider::before {
-  content: '';
-}
+/* dividerにflower要素がない場合のフォールバック */
+.divider:not(:has(.divider__flower))::before { content: ''; }
+.divider:not(:has(.divider__flower))::after  { content: '◈'; flex: none; font-size: 0.6rem; color: var(--accent); }
 
 
 /* =============================================
-   装飾文字
+   装飾文字（レガシー互換）
    ============================================= */
 .ornament {
   font-size: 1.3rem;
@@ -190,6 +213,18 @@ img {
   letter-spacing: 0.5em;
   display: block;
   margin: 0.5rem 0;
+}
+
+/* フッターの小花 */
+.footer__flower {
+  margin: 0 auto 1rem;
+  width: 60px;
+  height: 20px;
+}
+
+.footer__flower svg {
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -201,29 +236,15 @@ img {
   overflow: hidden;
 }
 
-/* 背景の大菊模様（SVG） */
+/* 背景：薄い同心円（水面の波紋のような） */
 .section--cover::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg opacity='0.07' fill='%232a3f6b'%3E%3Ccircle cx='200' cy='200' r='160' fill='none' stroke='%232a3f6b' stroke-width='1'/%3E%3Ccircle cx='200' cy='200' r='100' fill='none' stroke='%232a3f6b' stroke-width='1'/%3E%3Ccircle cx='200' cy='200' r='50' fill='none' stroke='%232a3f6b' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%232a3f6b' stroke-width='0.6' opacity='0.06'%3E%3Ccircle cx='250' cy='250' r='220'/%3E%3Ccircle cx='250' cy='250' r='180'/%3E%3Ccircle cx='250' cy='250' r='140'/%3E%3Ccircle cx='250' cy='250' r='100'/%3E%3Ccircle cx='250' cy='250' r='60'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 90%;
-  pointer-events: none;
-}
-
-/* 大輪の菊：右下 */
-.section--cover::after {
-  content: '';
-  position: absolute;
-  bottom: -60px;
-  right: -60px;
-  width: 320px;
-  height: 320px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%232a3f6b' stroke-width='1.2' opacity='0.22'%3E%3Ccircle cx='100' cy='100' r='20'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(0 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(30 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(60 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(90 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(120 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(150 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(180 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(210 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(240 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(270 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(300 100 100)'/%3E%3Cellipse cx='100' cy='70' rx='8' ry='28' transform='rotate(330 100 100)'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
   pointer-events: none;
 }
 
@@ -236,6 +257,23 @@ img {
   gap: 1.5rem;
 }
 
+/* 家紋・上部 */
+.cover__kamon {
+  width: 60px;
+  height: 60px;
+}
+
+.cover__kamon--bottom {
+  width: 36px;
+  height: 36px;
+  opacity: 0.6;
+}
+
+.cover__kamon svg {
+  width: 100%;
+  height: 100%;
+}
+
 .cover__frame {
   border: 1.5px solid var(--border);
   outline: 1px solid var(--border);
@@ -243,6 +281,18 @@ img {
   padding: 2rem 1.5rem;
   position: relative;
 }
+
+/* 枠の四隅に小さな菱形装飾 */
+.cover__frame::before,
+.cover__frame::after {
+  content: '◆';
+  position: absolute;
+  font-size: 0.4rem;
+  color: var(--accent);
+  opacity: 0.6;
+}
+.cover__frame::before { top: -0.5rem; left: 50%; transform: translateX(-50%); }
+.cover__frame::after  { bottom: -0.5rem; left: 50%; transform: translateX(-50%); }
 
 .cover__vertical {
   writing-mode: vertical-rl;
@@ -689,16 +739,17 @@ dd {
   border-top: 1px solid var(--ink-pale);
 }
 
-.ornament--footer {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
 .footer__date {
   margin-top: 0.5rem;
   font-size: 0.75rem;
   opacity: 0.6;
   letter-spacing: 0.15em;
+}
+
+/* レガシー互換 */
+.ornament--footer {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 
